@@ -7,14 +7,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 </head>
 <body>
-  <video autoplay  poster="https://www.facebook.com/Timkiline/videos/1569402053361323/" id="avi" loop>
-  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
-<source src="https://www.facebook.com/Timkiline/videos/1569402053361323/" type="video/avi">
-</video>
-<div id="Timkiline">
-<h1>Timkiline</h1>
-<p>Timkiline vous propose les produits du terroir Marocain. </p>
-<button>Pause</button>
+  <video id="video_background" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+<source src="https://drive.google.com/file/d/0Bz0UWW5NBrRUdmJ5enpTS2Q3NGM/view?usp=sharing" type="video/mp4">
+<img src="background.jpg" width="100%" height="100%" > </video>
+body{
+margin: 0;
+}
+#video_background{
+position: absolute;
+bottom: 0px;
+right: 0px;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: -1000;
+overflow: hidden;
+}
 </div>
    <div class="container">
      <CENTER> 
