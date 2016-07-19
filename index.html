@@ -7,24 +7,46 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 </head>
 <body>
-  <video id="video_background" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
-<source src="https://drive.google.com/file/d/0Bz0UWW5NBrRUdmJ5enpTS2Q3NGM/view?usp=sharing" type="video/mp4">
-<source src="https://drive.google.com/file/d/0Bz0UWW5NBrRUM0dyTTQ1ZEx6dkk/view?usp=sharing" type="video/ogg">
-<img src="https://drive.google.com/file/d/0Bz0UWW5NBrRUdmJ5enpTS2Q3NGM/view?usp=sharing" width="100%" height="100%" > </video>
-body{
-margin: 0;
+video {
+  background-color: black;
+  background-image: /* Ici, notre vidéo */;
+  background-position: center center;
+  background-size: contain;
 }
-#video_background{
-position: absolute;
-bottom: 0px;
-right: 0px;
-min-width: 100%;
-min-height: 100%;
-width: auto;
-height: auto;
-z-index: -1000;
-overflow: hidden;
+#mavideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+@media (min-aspect-ratio: 16/9) {
+  #mavideo {
+    height: 300%;
+    top: -100%;
+    /* Ou bien height: 200%; top: -50%; */
+    /* Ou bien height: 400%; top: -150%; */
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  #mavideo {
+    width: 300%;
+    left: -100%;
+    /* Ou bien width: 200%; left: -50%; */
+    /* Ou bien width: 400%; left: -150%; */
+  }
+}
+div id="video-fond">
+  <video controls>
+    <!-- Source vidéo par défaut -->
+    <source type="video/mp4" src="https://drive.google.com/file/d/0Bz0UWW5NBrRUdmJ5enpTS2Q3NGM/view?usp=sharing" media="(orientation: landscape)">
+    <source type="video/ogg" src="https://drive.google.com/file/d/0Bz0UWW5NBrRUM0dyTTQ1ZEx6dkk/view?usp=sharing" media="(orientation: landscape)">
+    <!-- Utilisez des sources vidéo carrées pour économiser la bande passante -->
+    <source type="video/mp4" src="https://drive.google.com/file/d/0Bz0UWW5NBrRUdmJ5enpTS2Q3NGM/view?usp=sharing" media="(orientation: landscape)" media="(orientation: portrait)">
+    <source type="video/ogg" src="https://drive.google.com/file/d/0Bz0UWW5NBrRUM0dyTTQ1ZEx6dkk/view?usp=sharing" media="(orientation: portrait)">
+  </video>
+  <!-- Ici les boutons ou les métadonnées -->
+</div>
 </div>
    <div class="container">
      <CENTER> 
